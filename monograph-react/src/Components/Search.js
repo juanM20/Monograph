@@ -3,6 +3,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import requests from './Request';
 
 import Tabla from './Tabla';
 
@@ -16,10 +17,7 @@ const values = [
     {value: 'Animales', label: 'Animales'},
 ];
 
-
-
-
-export default function Search(props){
+export default function Search(){
     const [value, setValue] = React.useState('Animales');
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -48,7 +46,7 @@ export default function Search(props){
                     </TextField>
                 </form>
             </Container>
-            <Tabla></Tabla>      
+            <Tabla fetchURL={requests.fetchALL}/>      
         </div>
     );
 }
